@@ -50,23 +50,4 @@ class Renderer {
     this.view.$recipesContainer.addClass("empty")
     this.view.$recipesContainer.append(newHTML)
   }
-  renderDreamTeam(dreamTeam) {
-    this.view.$dreamTeamContainer.empty()
-    let newHTML = {}
-    if (dreamTeam.length) {
-      if (this.view.$dreamTeamModal.hasClass("empty")) {
-        this.view.$dreamTeamModal.removeClass("empty")
-      }
-      newHTML = this.getTemplatedHTML(this.view.$dreamTeamTeamplate, dreamTeam)
-    } else {
-      const empty = {
-        title: "The dream team is still empty",
-        subTitle: "Please add up to 5 players",
-      }
-      this.view.$dreamTeamModal.addClass("empty")
-      newHTML = this.getTemplatedHTML(this.view.$dreamTeamEmptyTemplate, empty)
-    }
-    this.view.$dreamTeamModal.css("display", "block")
-    this.view.$dreamTeamContainer.append(newHTML)
-  }
 }
