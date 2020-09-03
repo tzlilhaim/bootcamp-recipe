@@ -25,9 +25,9 @@
     <script id="recipe-template" type="text/x-handlebars-template">
       {{#each data}}
         <div class="recipe">
-          <h3>
+          <h2>
             {{title}}
-          </h3>
+          </h2>
           <div class="meal-img-container">
             <img src={{img}} />
           </div>
@@ -37,6 +37,18 @@
           >
             Tutorial Video
           </button>
+          <div class="ingredients">
+            <h4>
+              Ingredients:
+            </h4>
+          </div>
+          <ul>
+            {{#each this.ingredients}}
+              <li>
+                {{this}}
+              </li>
+            {{/each}}
+          </ul>
         </div>
       {{/each}}
     </script>

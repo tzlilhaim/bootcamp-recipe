@@ -15,3 +15,7 @@ $("#search-bar>button").on("click", function () {
     renderer.renderAlertedInput()
   }
 })
+
+$("#recipes-containes").on("click","img",function(){
+    $(this).closest(".recipe").find
+})
