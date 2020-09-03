@@ -53,6 +53,22 @@
       {{/each}}
     </script>
 
+    <script id="empty-state-template" type="text/x-handlebars-template">
+      <div class="empty-state">
+        <i class="far fa-grin-beam-sweat fa-4x"></i>
+        <br />
+        <h1>
+          {{data.title}}
+          <span>
+            "{{data.ingredient}}"
+          </span>
+        </h1>
+        <br />
+        <h3>
+          {{data.subTitle}}
+        </h3>
+      </div>
+    </script>
     <script src="/scripts/handlebars/dist/handlebars.js"></script>
     <script src="/scripts/jquery/dist/jquery.js"></script>
     <script src="./renderer.js"></script>

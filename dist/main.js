@@ -22,3 +22,15 @@ $("#recipes-container").on("click", ".meal-img-container", function () {
     .find("li.ingredient:first")
   alert(firstIngredient.text())
 })
+
+
+// Make search bar sticky on scroll
+$(window).scroll(function () {
+    let scroll = $(window).scrollTop()
+  
+    if (scroll >= 100) {
+      $("#search-bar").addClass("sticky")
+    } else {
+      $("#search-bar").removeClass("sticky")
+    }
+  })
