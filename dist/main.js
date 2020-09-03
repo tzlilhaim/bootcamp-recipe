@@ -16,6 +16,9 @@ $("#search-bar>button").on("click", function () {
   }
 })
 
-$("#recipes-containes").on("click","img",function(){
-    $(this).closest(".recipe").find
+$("#recipes-container").on("click", ".meal-img-container", function () {
+  const firstIngredient = $(this)
+    .closest(".recipe")
+    .find("li.ingredient:first")
+  alert(firstIngredient.text())
 })

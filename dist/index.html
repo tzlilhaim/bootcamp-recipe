@@ -37,18 +37,18 @@
           >
             Tutorial Video
           </button>
-          <div class="ingredients">
+          <div class="ingredients-list">
             <h4>
               Ingredients:
             </h4>
+            <ul>
+              {{#each this.ingredients}}
+                <li class="ingredient">
+                  {{this}}
+                </li>
+              {{/each}}
+            </ul>
           </div>
-          <ul>
-            {{#each this.ingredients}}
-              <li>
-                {{this}}
-              </li>
-            {{/each}}
-          </ul>
         </div>
       {{/each}}
     </script>

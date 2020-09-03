@@ -15,7 +15,6 @@ class Renderer {
     }
   
     renderRecipes(recipes) {
-        console.log(recipes)
       this.view.$recipesContainer.empty()
       const newHTML = this.getTemplatedHTML(
         this.view.$recipeTemplate,
