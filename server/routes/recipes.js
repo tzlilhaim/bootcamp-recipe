@@ -21,7 +21,8 @@ class RecipeBook {
     return this.recipes
   }
   getIngredientRecipes(ingredient) {
-    return this.recipes[ingredient]
+    const recipes = this.recipes[ingredient]
+    return recipes ? recipes : []
   }
   clearRecipeBook() {
     this.recipes = []
@@ -30,20 +31,24 @@ class RecipeBook {
 
 class Recipe {
   constructor(title, ingredients, img, videoLink, instructions) {
-    this.title = title,
-    this.ingredients = ingredients,
-    this.img = img,
-    this.videoLink = videoLink,
-    this.instructions = instructions}
+    ;(this.title = title),
+      (this.ingredients = ingredients),
+      (this.img = img),
+      (this.videoLink = videoLink),
+      (this.instructions = instructions)
+  }
 }
 
 const recipeBook = new RecipeBook()
 
 const getRecipesData = function (ingredient, res) {
   const existingData = recipeBook.getIngredientRecipes(ingredient)
-  const resMsg = {ingredient: ingredient, recipes: []} 
-  if (!existingData) {
-    request(`https://recipes-goodness.herokuapp.com/recipes/${ingredient}`,
+  const resMsg = { ingredient: ingredient, recipes: existingData }
+  if (existingData.length) {
+    res.send(resMsg)
+  } else {
+    request(
+      `https://recipes-goodness.herokuapp.com/recipes/${ingredient}`,
       function (error, response, body) {
         let recipes = []
         if (error) {
@@ -55,10 +60,8 @@ const getRecipesData = function (ingredient, res) {
         }
         resMsg.recipes = recipes
         res.send(resMsg)
-      })
-  }else{
-    resMsg.recipes = existingData
-      res.send(resMsg)
+      }
+    )
   }
 }
 
